@@ -1,0 +1,25 @@
+language: c
+dist: focal
+addons:
+  apt:
+    packages:
+    - build-essential
+    - gcc
+services:
+- docker
+script:
+- cc -o mount-idmapped mount-idmapped.c
+deploy:
+  provider: releases
+  api_key:
+    secure: RHzTAFPNM5wP4apU0LjlPvwHqSVmU+fKZMzIfKYkKV7xJ6yLepqPBhsA7Qjp0VDK3QIZKfHiP9aXmR+jw+IGi4cZ2Pe0DXLB0LiBcpl0diU0Kmaeqg5CgbMWcLTkHa2D5cJQOY55I5SZim5HZYt1KG1s685yDRkfYprco3Kx3DnZ835yE9bcRbsrd6z7sZOF5vuvFQ0jImY3Ob5Xvpdg8p3kYHlfvfPoYGsi+7Po4a0J9DOuqRcCTmKPPpAWhfhq6GOQAYWCDTzp0t79BuwN0Fz7BUQ6H+t1Ef7UyeFx3ubQ97YSGl2w9SFIQeQxO6yPd7RoECqSYaKePY5QSLk/9cjQQU2xEX5ymdf9zNf/3I1dW4tWXFQRivC0cksIWboiuhL7ZvOpiU1CtvYeGC8HcQA1zLEg1htBv5hnVcMdGR4YfRaRKe4uqNl9MwN+imNwwcEOfwtlayUwy+oNxFFyrOTMNK0oeYId+q8M4HHHOpjN5Z4Cr0TjuL+suiQ2T1QVC6sFGHOM4JNa1J3OEGKOyVRcOFylaE8ynABbp3naSRoj/cI8b3ryc+3gZb96cjJDJttX+3/GlmYcip7rPyxzQtx2TIU6YW3eMvmWzZls2CtvmzXayuLc2z0UWxjw9z5TySvjwQcZ5SttQ0GyygXFBSbGDXyQjhDZZsYAGQhd+aI=
+  skip_cleanup: true
+  draft: false
+  overwrite: true
+  file:
+  - mount-idmapped
+  on:
+    tags: true
+env:
+  global:
+    secure: y3x2ZfV++HCPRcyjjmwK+covwBvZUDLfy6Tj2TGtz/WckBkaf4JlXVhUr07QcfuuodGF047nCyx8p8rCZij9CcfaRHGEOWxZx2eGFWoiipWzjWMi3IdRyf2Rl9pQw0qxUV89ub0UyEOI+IW6vgotm21oU2XyBxZTMPS+dD0q3C1C+vdXuZin/FMhl49wC+Yo1qDQ+GgsPSx0NPx9fFZ+fIBxSXXKlRx1/z8r80D7u4ocm6KWweBFsM+8yFsmZYLQTAk2LQHcXdENXWG4IXp8GxRtE54OA2hXr5Nv8fvW3WXffwMzN3gj4qYMPaDUk1ILauIMNwEueSCk5zueK5HOU67xoSKt22OdHmWPHhgycSvibNSf4lklm2qmfNnE94wQcCznT804vem5OP2Up2QiR089TR2YRgJm9DfA0pVUq5R3tO37mSNz0bUGLcH1+jOzwVEsdewyU8wCqfNwTV0vpULtU0D3lwflmq8SqpsfuGUdI7Ioi6W/8YEr/JwbFB7Ups1n5Och4P8w8eTxBuqssKBC9uh/KMAp3Of3mf7PnvjT7bPI2MNviMkoiNCymgf9BjeWOHuAP4AhsYq/Q9h1AM6Yk4+vfPN76EH++k/yRUh9g/oCUskScMG57QXOERObNl02mP+aY0wqYONcWYqY/TDOSwrV4u5yHAJleTOZ670=
