@@ -1,0 +1,22 @@
+language: c
+dist: focal
+addons:
+  apt:
+    packages:
+    - build-essential
+    - gcc
+services:
+- docker
+script:
+- cc -o mount-idmapped mount-idmapped.c
+deploy:
+  provider: releases
+  api_key:
+    secure: K0HR0gucJCrd5RxZLecKjuw5zjmoUQaquxmNRVpYHOMYs8xQ2vbIrq4cnmeISPau+tgX7eqLN1Xk7YDqKCz9ZJ+7MiQ2cl86f4NiVHoi+RvsdNlOonQsPOopoZdKcJm54QSWHBwoTOZM+5U4V7E1mDa2SkHXuUo920eThvLPWU62cQBjdwWmTrNhwnHdu2rNeeE0z+82qqALqMraUDZbAsN3NOOL95F6zOOkyZqc0/s29ugdA061gaFDNsm5sfpMSEYOjfOiT/CdNn26IOzJzyoRf4Xfzx/ueOgVSlaZHQSHT1/dYSbBdo2YrN8TJGzUmNIDQfPI92WJqgu9pTG1KCWqFK01yBdUTSKCtaBu7Pl2OF5I+1v9A8s9R+Fn+dzqlrU9E7rcKxsgTI17cPd9O4if8JDre3xyOSykFPt7qn8wL54RZzqiH/5sC6u1lbyqEMEb/8X2mtMbH7T8sV8vNVZD7CdY6UmHAgpyZTcPovL5jFELkJc3cgSQyz16H8J+Z13c9cLrgzNHQUaV+SegM/yL/a8Fhax9Pj7giMe20BhR+VmymmclvfLhy3csvJ6KkeJ54WO0l1SqWw9LYKRS1N6f9AQRUSkTBmVUVLVY+Cy92FS4pOB4z7TlwLwfaalGVtBlJAQdTkMJ7gWmnvzAvyouYMnnq7t2foPcLndEisw=
+  skip_cleanup: true
+  draft: false
+  overwrite: true
+  file:
+  - mount-idmapped
+  on:
+    tags: true
